@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Refactored Pricing Card</title>
+<style>
+/* CSS Custom Properties for easy theming (reusability) */
+:root {
+  --color-primary: #007bff; /* Blue */
+  --color-primary-dark: #0056b3;
+  --color-text-highlight: #28a745; /* Green */
+  --color-border: #eee;
+  --color-background: #fff;
+  --spacing-base: 1rem;
+}
+
+/* Card Component Styles */
+.card {
+  width: 300px;
+  margin: var(--spacing-base) auto;
+  background-color: var(--color-background);
+  /* FIX: Corrected typo from box-shdow to box-shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex; /* Using flex for better layout control */
+  flex-direction: column;
+  gap: 1rem; /* Space between elements */
+}
+
+.card__header {
+  text-align: center;
+}
+
+.card__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.card__price {
+  font-size: 1.5rem;
+  color: var(--color-text-highlight);
+  font-weight: 600;
+}
+
+.card__features {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  flex-grow: 1; /* Allows feature list to take up available space */
+}
+
+.card__features li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card__features li:last-child {
+  border-bottom: none;
+}
+
+.card__button {
+  background: var(--color-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer; /* Added for responsiveness */
+  text-align: center;
+  text-decoration: none; /* If used as an <a> tag */
+  transition: background 0.2s ease;
+}
+
+.card__button:hover {
+  background: var(--color-primary-dark);
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card__header">
+    <h2 class="card__title">Pro Plan</h2> 
+    <p class="card__price">$29.99 /month</p>
+  </div>
+
+  <ul class="card__features">
+    <li>⚡ 100 GB Storage</li>
+    <li>✅ Priority Support</li>
+    <li>⭐ All Pro Features</li>
+    <li>🚀 Custom Domain</li>
+  </ul>
+
+  <button class="card__button">Upgrade Now</button>
+</div>
+
+</body>
+</html>
